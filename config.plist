@@ -6,17 +6,36 @@
 	<dict>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<false/>
-			<key>Fixes</key>
-			<dict>
-				<key>FixHPET</key>
-				<false/>
-				<key>FixIPIC</key>
-				<false/>
-			</dict>
 			<key>Patches</key>
 			<array>
+				<dict>
+					<key>Comment</key>
+					<string>_OSI to XOSI</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X09TSQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WE9TSQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>SAT0 to SATA</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					U0FUMA==
+					</data>
+					<key>Replace</key>
+					<data>
+					U0FUQQ==
+					</data>
+				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>BAT0 TO BATC</string>
@@ -63,105 +82,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change _DSM to XDSM</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X0RTTQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WERTTQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X09TSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WE9TSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HDAS to HDEF</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SERBUw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERFRg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HECI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SEVDSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HPET._STA to XSTA</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					FBJfU1RBAA==
-					</data>
-					<key>Replace</key>
-					<data>
-					FBJYU1RBAA==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Change Method(_Q15,0,N) to XQ15</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X1ExNQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFExNQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Change Method(_Q14,0,N) to XQ14</string>
+					<string>_Q14 to XQ14</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -175,7 +96,21 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(GBIF,3,N) to XBIF</string>
+					<string>_Q15 to XQ15</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1ExNQ==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExNQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>GBIF to XBIF</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -189,7 +124,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(GBIX,3,N) to XBIX</string>
+					<string>GBIX to XBIX</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -203,7 +138,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(GBST,4,N) to XBST</string>
+					<string>GBST to XBST</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -217,7 +152,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(AJTP,3,N) to XJTP</string>
+					<string>AJTP to XJTP</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -231,7 +166,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(_L17,0,N) to XL17</string>
+					<string>_L17 to XL17</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -245,7 +180,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(OWAK,1,N) to XWAK</string>
+					<string>OWAK to XWAK</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -255,118 +190,6 @@
 					<key>Replace</key>
 					<data>
 					WFdBSwE=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(GPRW,2,N) to XPRW</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					R1BSVwI=
-					</data>
-					<key>Replace</key>
-					<data>
-					WFBSVwI=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Name(_PRW) to ZPRW</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					CF9QUlc=
-					</data>
-					<key>Replace</key>
-					<data>
-					CFpQUlc=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(_PTS,1,N) to ZPTS</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X1BUUw==
-					</data>
-					<key>Replace</key>
-					<data>
-					WlBUUw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Method(_WAK,1,S) to ZWAK</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X1dBSw==
-					</data>
-					<key>Replace</key>
-					<data>
-					WldBSw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Rename H_EC to EC (USB Power)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SF9FQw==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUMwXw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Rename SAT0 to SATA (Disk)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					U0FUMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					U0FUQQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>KBD to PS2K</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					S0JEXw==
-					</data>
-					<key>Replace</key>
-					<data>
-					UFMySw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>_LID to XLID</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X0xJRA==
-					</data>
-					<key>Replace</key>
-					<data>
-					WExJRA==
 					</data>
 				</dict>
 				<dict>
@@ -385,7 +208,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>_Q2B to XQ2B(TP-LID)</string>
+					<string>_Q2B to XQ2B</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -399,122 +222,50 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>_Q64 to XQ64</string>
+					<string>_LID to XLID</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
-					X1E2NA==
+					BV9MSUQAoEkE
 					</data>
 					<key>Replace</key>
 					<data>
-					WFE2NA==
+					BVhMSUQAoEkE
 					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>_Q66 to XQ66</string>
+					<string>_PTS to ZPTS(1,N)</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
-					X1E2Ng==
+					X1BUUwE=
 					</data>
 					<key>Replace</key>
 					<data>
-					WFE2Ng==
+					WlBUUwE=
 					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>_Q6A to XQ6A</string>
+					<string>_WAK to ZWAK(1,S)</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
-					X1E2QQ==
+					X1dBSwk=
 					</data>
 					<key>Replace</key>
 					<data>
-					WFE2QQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>_Q60 to XQ60</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					X1E2MA==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFE2MA==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>_Q61 to XQ61</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					X1E2MQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFE2MQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>_Q62 to XQ62</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					X1E2Mg==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFE2Mg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>_Q16 to XQ16</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					X1ExNg==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFExNg==
+					WldBSwk=
 					</data>
 				</dict>
 			</array>
 		</dict>
 		<key>FixHeaders</key>
 		<true/>
-		<key>FixMCFG</key>
-		<false/>
-		<key>SSDT</key>
-		<dict>
-			<key>DropOem</key>
-			<false/>
-			<key>Generate</key>
-			<dict>
-				<key>CStates</key>
-				<false/>
-				<key>PStates</key>
-				<false/>
-				<key>PluginType</key>
-				<true/>
-			</dict>
-		</dict>
 	</dict>
 	<key>Boot</key>
 	<dict>
@@ -531,8 +282,6 @@
 	</dict>
 	<key>CPU</key>
 	<dict>
-		<key>HWPEnable</key>
-		<true/>
 		<key>UseARTFrequency</key>
 		<false/>
 	</dict>
@@ -544,14 +293,10 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
-				<key>device_type</key>
-				<string>Multimedia controller</string>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>layout-id</key>
-				<data>
-				CwAAAA==
-				</data>
+				<integer>11</integer>
 				<key>model</key>
 				<string>Realtek HD Audio ALC257</string>
 			</dict>
@@ -567,8 +312,6 @@
 				<data>
 				FlkAAA==
 				</data>
-				<key>device_type</key>
-				<string>Display controller</string>
 				<key>enable-hdmi20</key>
 				<data>
 				AQAAAA==
@@ -627,17 +370,12 @@
 	</dict>
 	<key>Graphics</key>
 	<dict>
-		<key>EDID</key>
-		<dict>
-			<key>Inject</key>
-			<false/>
-		</dict>
 		<key>Inject</key>
 		<dict>
 			<key>ATI</key>
 			<false/>
 			<key>Intel</key>
-			<true/>
+			<false/>
 			<key>NVidia</key>
 			<false/>
 		</dict>
@@ -652,6 +390,8 @@
 		<false/>
 		<key>KernelPm</key>
 		<true/>
+		<key>PanicNoKextDump</key>
+		<true/>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
@@ -663,17 +403,17 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>09/17/2019</string>
+		<string>11/08/2019</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP151.88Z.F000.B00.1909172039</string>
+		<string>MBP152.88Z.F000.B00.1911080134</string>
 		<key>Board-ID</key>
-		<string>Mac-937A206F2EE63C01</string>
+		<string>Mac-827FB448E656EC26</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02753270GUJP4F1H</string>
+		<string>C029531044NJH4R8C</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -685,7 +425,7 @@
 		<key>ChassisType</key>
 		<string>0x09</string>
 		<key>EfiVersion</key>
-		<string>1037.0.78.0.0</string>
+		<string>1037.60.55.0.0</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
@@ -701,11 +441,11 @@
 		<key>PlatformFeature</key>
 		<string>0x02</string>
 		<key>ProductName</key>
-		<string>MacBookPro15,1</string>
+		<string>MacBookPro15,2</string>
 		<key>SerialNumber</key>
-		<string>C02W19ZSKGYG</string>
+		<string>C02ZXLY8JHCD</string>
 		<key>SmUUID</key>
-		<string>42521899-9A61-46E1-921F-BD8BDF8B8994</string>
+		<string>BF3DABD9-7D88-423B-87A1-EC62851F9DE1</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
