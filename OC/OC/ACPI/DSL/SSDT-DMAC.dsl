@@ -1,62 +1,42 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20191213 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of SSDT-DMAC.aml, Tue Feb 18 15:41:32 2020
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x000000A6 (166)
- *     Revision         0x02
- *     Checksum         0xEC
- *     OEM ID           "hack"
- *     OEM Table ID     "DMAC"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20190405 (538510341)
- */
-DefinitionBlock ("", "SSDT", 2, "ACDT", "DMAC", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "OCLT", "DMAC", 0)
 {
-    External (_SB_.PCI0.LPCB, DeviceObj)
+    External (_SB.PCI0.LPCB, DeviceObj)
 
     Scope (_SB.PCI0.LPCB)
     {
         Device (DMAC)
         {
-            Name (_HID, EisaId ("PNP0200") /* PC-class DMA Controller */)  // _HID: Hardware ID
-            Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+            Name (_HID, EisaId ("PNP0200"))
+            Name (_CRS, ResourceTemplate ()
             {
                 IO (Decode16,
-                    0x0000,             // Range Minimum
-                    0x0000,             // Range Maximum
-                    0x01,               // Alignment
-                    0x20,               // Length
+                    0x0000,
+                    0x0000,
+                    0x01,
+                    0x20,
                     )
                 IO (Decode16,
-                    0x0081,             // Range Minimum
-                    0x0081,             // Range Maximum
-                    0x01,               // Alignment
-                    0x11,               // Length
+                    0x0081,
+                    0x0081,
+                    0x01,
+                    0x11,
                     )
                 IO (Decode16,
-                    0x0093,             // Range Minimum
-                    0x0093,             // Range Maximum
-                    0x01,               // Alignment
-                    0x0D,               // Length
+                    0x0093,
+                    0x0093,
+                    0x01,
+                    0x0D,
                     )
                 IO (Decode16,
-                    0x00C0,             // Range Minimum
-                    0x00C0,             // Range Maximum
-                    0x01,               // Alignment
-                    0x20,               // Length
+                    0x00C0,
+                    0x00C0,
+                    0x01,
+                    0x20,
                     )
                 DMA (Compatibility, NotBusMaster, Transfer8_16, )
                     {4}
             })
-            Method (_STA, 0, NotSerialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)
             {
                 If (_OSI ("Darwin"))
                 {

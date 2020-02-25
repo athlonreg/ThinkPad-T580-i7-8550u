@@ -1,28 +1,8 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20191213 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of SSDT-HRTF.aml, Tue Feb 18 15:41:32 2020
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x000001DA (474)
- *     Revision         0x02
- *     Checksum         0x72
- *     OEM ID           "ACDT"
- *     OEM Table ID     "HRTF"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20190509 (538510601)
- */
-DefinitionBlock ("", "SSDT", 2, "ACDT", "HRTF", 0x00000000)
+DefinitionBlock ("", "SSDT", 2, "OCLT", "HRTF", 0)
 {
-    External (_SB_.PCI0.LPCB, DeviceObj)
-    External (_SB_.PCI0.LPCB.RTC_, DeviceObj)
-    External (_SB_.PCI0.LPCB.TIMR, DeviceObj)
+    External (_SB.PCI0.LPCB, DeviceObj)
+    External (_SB.PCI0.LPCB.RTC, DeviceObj)
+    External (_SB.PCI0.LPCB.TIMR, DeviceObj)
     External (HPTE, IntObj)
 
     Scope (\)
@@ -35,7 +15,7 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "HRTF", 0x00000000)
 
     Scope (_SB.PCI0.LPCB.RTC)
     {
-        Method (_STA, 0, NotSerialized)  // _STA: Status
+        Method (_STA, 0, NotSerialized)
         {
             If (_OSI ("Darwin"))
             {
@@ -50,7 +30,7 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "HRTF", 0x00000000)
 
     Scope (_SB.PCI0.LPCB.TIMR)
     {
-        Method (_STA, 0, NotSerialized)  // _STA: Status
+        Method (_STA, 0, NotSerialized)
         {
             If (_OSI ("Darwin"))
             {
@@ -67,18 +47,19 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "HRTF", 0x00000000)
     {
         Device (HPE0)
         {
-            Name (_HID, EisaId ("PNP0103") /* HPET System Timer */)  // _HID: Hardware ID
-            Name (_UID, Zero)  // _UID: Unique ID
+            Name (_HID, EisaId ("PNP0103"))
+            Name (_UID, Zero)
             Name (BUF0, ResourceTemplate ()
             {
                 IRQNoFlags ()
                     {0,8}
                 Memory32Fixed (ReadWrite,
-                    0xFED00000,         // Address Base
-                    0x00000400,         // Address Length
+                    0xFED00000,
+                    0x00000400,
                     )
             })
-            Method (_STA, 0, NotSerialized)  // _STA: Status
+            
+            Method (_STA, 0, NotSerialized)
             {
                 If (_OSI ("Darwin"))
                 {
@@ -90,25 +71,25 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "HRTF", 0x00000000)
                 }
             }
 
-            Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
+            Method (_CRS, 0, Serialized)
             {
-                Return (BUF0) /* \_SB_.PCI0.LPCB.HPE0.BUF0 */
+                Return (BUF0)
             }
         }
 
         Device (RTC0)
         {
-            Name (_HID, EisaId ("PNP0B00") /* AT Real-Time Clock */)  // _HID: Hardware ID
-            Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+            Name (_HID, EisaId ("PNP0B00"))
+            Name (_CRS, ResourceTemplate ()
             {
                 IO (Decode16,
-                    0x0070,             // Range Minimum
-                    0x0070,             // Range Maximum
-                    0x01,               // Alignment
-                    0x08,               // Length
+                    0x0070,
+                    0x0070,
+                    0x01,
+                    0x08,
                     )
             })
-            Method (_STA, 0, NotSerialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)
             {
                 If (_OSI ("Darwin"))
                 {
@@ -123,23 +104,23 @@ DefinitionBlock ("", "SSDT", 2, "ACDT", "HRTF", 0x00000000)
 
         Device (TIM0)
         {
-            Name (_HID, EisaId ("PNP0100") /* PC-class System Timer */)  // _HID: Hardware ID
-            Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
+            Name (_HID, EisaId ("PNP0100"))
+            Name (_CRS, ResourceTemplate ()
             {
                 IO (Decode16,
-                    0x0040,             // Range Minimum
-                    0x0040,             // Range Maximum
-                    0x01,               // Alignment
-                    0x04,               // Length
+                    0x0040,
+                    0x0040,
+                    0x01,
+                    0x04,
                     )
                 IO (Decode16,
-                    0x0050,             // Range Minimum
-                    0x0050,             // Range Maximum
-                    0x10,               // Alignment
-                    0x04,               // Length
+                    0x0050,
+                    0x0050,
+                    0x10,
+                    0x04,
                     )
             })
-            Method (_STA, 0, NotSerialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)
             {
                 If (_OSI ("Darwin"))
                 {

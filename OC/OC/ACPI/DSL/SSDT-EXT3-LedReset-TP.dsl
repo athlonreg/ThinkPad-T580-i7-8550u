@@ -1,4 +1,3 @@
-//
 DefinitionBlock("", "SSDT", 2, "OCLT", "EXT3", 0)
 {
     External(_SI._SST, MethodObj)
@@ -17,4 +16,3 @@ DefinitionBlock("", "SSDT", 2, "OCLT", "EXT3", 0)
         }
     }
 }
-//EOF

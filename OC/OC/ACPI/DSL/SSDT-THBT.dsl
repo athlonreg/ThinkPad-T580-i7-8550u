@@ -1,45 +1,25 @@
-/*
- * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20190509 (64-bit version)
- * Copyright (c) 2000 - 2019 Intel Corporation
- * 
- * Disassembling to symbolic ASL+ operators
- *
- * Disassembly of iASLWMjNMa.aml, Tue Feb 18 15:57:27 2020
- *
- * Original Table Header:
- *     Signature        "SSDT"
- *     Length           0x00001B5E (7006)
- *     Revision         0x01
- *     Checksum         0x24
- *     OEM ID           "ACDT"
- *     OEM Table ID     "TBTP"
- *     OEM Revision     0x00000000 (0)
- *     Compiler ID      "INTL"
- *     Compiler Version 0x20190509 (538510601)
- */
-DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
+DefinitionBlock ("", "SSDT", 1, "OCLT", "THBT", 0)
 {
-    External (_SB_.PCI0, DeviceObj)
-    External (_SB_.PCI0.RP09, DeviceObj)
-    External (_SB_.PCI0.RP09.PXSX, DeviceObj)
+    External (_SB.PCI0, DeviceObj)
+    External (_SB.PCI0.RP09, DeviceObj)
+    External (_SB.PCI0.RP09.PXSX, DeviceObj)
     External (PXSX, DeviceObj)
 
     Scope (_SB.PCI0.RP09)
     {
         Scope (PXSX)
         {
-            Name (_STA, Zero)  // _STA: Status
+            Name (_STA, Zero)
         }
 
-        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+        Method (_RMV, 0, NotSerialized)
         {
             Return (Zero)
         }
 
         Device (UPSB)
         {
-            Name (_ADR, Zero)  // _ADR: Address
+            Name (_ADR, Zero)
             OperationRegion (A1E0, PCI_Config, Zero, 0x40)
             Field (A1E0, ByteAcc, NoLock, Preserve)
             {
@@ -54,12 +34,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                 MABT,   1
             }
 
-            Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+            Method (_BBN, 0, NotSerialized)
             {
-                Return (SECB) /* \_SB_.PCI0.RP09.UPSB.SECB */
+                Return (SECB)
             }
 
-            Method (_STA, 0, NotSerialized)  // _STA: Status
+            Method (_STA, 0, NotSerialized)
             {
                 If (_OSI ("Darwin"))
                 {
@@ -71,18 +51,18 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                 }
             }
 
-            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+            Method (_RMV, 0, NotSerialized)
             {
                 Return (Zero)
             }
 
-            Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+            Method (_DSM, 4, Serialized)
             {
                 If (!Arg2)
                 {
                     Return (Buffer (One)
                     {
-                         0x03                                             // .
+                         0x03
                     })
                 }
 
@@ -97,7 +77,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     "built-in", 
                     Buffer (One)
                     {
-                         0x00                                             // .
+                         0x00
                     }, 
 
                     "PCI-Thunderbolt", 
@@ -107,7 +87,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
             Device (DSB0)
             {
-                Name (_ADR, Zero)  // _ADR: Address
+                Name (_ADR, Zero)
                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                 Field (A1E0, ByteAcc, NoLock, Preserve)
                 {
@@ -122,12 +102,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     MABT,   1
                 }
 
-                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                Method (_BBN, 0, NotSerialized)
                 {
-                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB0.SECB */
+                    Return (SECB)
                 }
 
-                Method (_STA, 0, NotSerialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)
                 {
                     If (_OSI ("Darwin"))
                     {
@@ -139,18 +119,18 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     }
                 }
 
-                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                Method (_RMV, 0, NotSerialized)
                 {
                     Return (Zero)
                 }
 
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (_DSM, 4, Serialized)
                 {
                     If (!Arg2)
                     {
                         Return (Buffer (One)
                         {
-                             0x03                                             // .
+                             0x03
                         })
                     }
 
@@ -165,7 +145,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                         "built-in", 
                         Buffer (One)
                         {
-                             0x00                                             // .
+                             0x00
                         }, 
 
                         "PCIHotplugCapable", 
@@ -175,9 +155,9 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                 Device (NHI0)
                 {
-                    Name (_ADR, Zero)  // _ADR: Address
-                    Name (_STR, Unicode ("Thunderbolt"))  // _STR: Description String
-                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                    Name (_ADR, Zero)
+                    Name (_STR, Unicode ("Thunderbolt"))
+                    Method (_RMV, 0, NotSerialized)
                     {
                         Return (Zero)
                     }
@@ -196,7 +176,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                         MABT,   1
                     }
 
-                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)
                     {
                         If (_OSI ("Darwin"))
                         {
@@ -208,13 +188,13 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                         }
                     }
 
-                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    Method (_DSM, 4, NotSerialized)
                     {
                         If ((Arg2 == Zero))
                         {
                             Return (Buffer (One)
                             {
-                                 0x03                                             // .
+                                 0x03
                             })
                         }
 
@@ -229,7 +209,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                 "built-in", 
                                 Buffer (One)
                                 {
-                                     0x00                                             // .
+                                     0x00
                                 }, 
 
                                 "device_type", 
@@ -254,7 +234,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                 One, 
                                 Buffer (One)
                                 {
-                                     0x00                                             // .
+                                     0x00
                                 }
                             }
                         Method (DTGP, 5, NotSerialized)
@@ -267,7 +247,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     {
                                         Arg4 = Buffer (One)
                                             {
-                                                 0x03                                             // .
+                                                 0x03
                                             }
                                         Return (One)
                                     }
@@ -281,7 +261,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Arg4 = Buffer (One)
                                 {
-                                     0x00                                             // .
+                                     0x00
                                 }
                             Return (Zero)
                         }
@@ -295,8 +275,8 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
             Device (DSB1)
             {
-                Name (_ADR, 0x00010000)  // _ADR: Address
-                Name (_SUN, 0x04)  // _SUN: Slot User Number
+                Name (_ADR, 0x00010000)
+                Name (_SUN, 0x04)
                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                 Field (A1E0, ByteAcc, NoLock, Preserve)
                 {
@@ -311,12 +291,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     MABT,   1
                 }
 
-                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                Method (_BBN, 0, NotSerialized)
                 {
-                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.SECB */
+                    Return (SECB)
                 }
 
-                Method (_STA, 0, NotSerialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)
                 {
                     If (_OSI ("Darwin"))
                     {
@@ -328,12 +308,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     }
                 }
 
-                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                Method (_RMV, 0, NotSerialized)
                 {
                     Return (Zero)
                 }
 
-                Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                Method (_PRW, 0, NotSerialized)
                 {
                     Return (Package (0x02)
                     {
@@ -342,13 +322,13 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     })
                 }
 
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (_DSM, 4, Serialized)
                 {
                     If (!Arg2)
                     {
                         Return (Buffer (One)
                         {
-                             0x03                                             // .
+                             0x03
                         })
                     }
 
@@ -363,26 +343,26 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                         "built-in", 
                         Buffer (One)
                         {
-                             0x00                                             // .
+                             0x00
                         }
                     })
                 }
 
                 Device (UPS0)
                 {
-                    Name (_ADR, Zero)  // _ADR: Address
+                    Name (_ADR, Zero)
                     OperationRegion (ARE0, PCI_Config, Zero, 0x04)
                     Field (ARE0, ByteAcc, NoLock, Preserve)
                     {
                         AVND,   16
                     }
 
-                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                    Method (_RMV, 0, NotSerialized)
                     {
                         Return (Zero)
                     }
 
-                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)
                     {
                         If (_OSI ("Darwin"))
                         {
@@ -396,7 +376,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB0)
                     {
-                        Name (_ADR, Zero)  // _ADR: Address
+                        Name (_ADR, Zero)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -414,12 +394,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             SBRS,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB0.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -431,15 +411,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
 
                         Device (DEV0)
                         {
-                            Name (_ADR, Zero)  // _ADR: Address
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Name (_ADR, Zero)
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -451,7 +431,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                 }
                             }
 
-                            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                            Method (_RMV, 0, NotSerialized)
                             {
                                 Return (Zero)
                             }
@@ -460,7 +440,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB3)
                     {
-                        Name (_ADR, 0x00030000)  // _ADR: Address
+                        Name (_ADR, 0x00030000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -475,12 +455,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB3.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -492,26 +472,26 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
 
                         Device (UPS0)
                         {
-                            Name (_ADR, Zero)  // _ADR: Address
+                            Name (_ADR, Zero)
                             OperationRegion (ARE0, PCI_Config, Zero, 0x04)
                             Field (ARE0, ByteAcc, NoLock, Preserve)
                             {
                                 AVND,   16
                             }
 
-                            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                            Method (_RMV, 0, NotSerialized)
                             {
                                 Return (Zero)
                             }
 
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -525,7 +505,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB0)
                             {
-                                Name (_ADR, Zero)  // _ADR: Address
+                                Name (_ADR, Zero)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -543,12 +523,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     SBRS,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB3.UPS0.DSB0.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -562,8 +542,8 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -579,7 +559,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB3)
                             {
-                                Name (_ADR, 0x00030000)  // _ADR: Address
+                                Name (_ADR, 0x00030000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -594,12 +574,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB3.UPS0.DSB3.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -611,15 +591,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -631,7 +611,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -640,8 +620,8 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB4)
                             {
-                                Name (_ADR, 0x00040000)  // _ADR: Address
-                                Name (_SUN, 0x04)  // _SUN: Slot User Number
+                                Name (_ADR, 0x00040000)
+                                Name (_SUN, 0x04)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -656,12 +636,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB3.UPS0.DSB4.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -673,15 +653,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -693,7 +673,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -702,7 +682,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB5)
                             {
-                                Name (_ADR, 0x00050000)  // _ADR: Address
+                                Name (_ADR, 0x00050000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -717,12 +697,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB3.UPS0.DSB5.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -734,7 +714,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -742,7 +722,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB6)
                             {
-                                Name (_ADR, 0x00060000)  // _ADR: Address
+                                Name (_ADR, 0x00060000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -757,12 +737,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB3.UPS0.DSB6.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -774,7 +754,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -784,7 +764,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB4)
                     {
-                        Name (_ADR, 0x00040000)  // _ADR: Address
+                        Name (_ADR, 0x00040000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -799,12 +779,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB4.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -816,26 +796,26 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
 
                         Device (UPS0)
                         {
-                            Name (_ADR, Zero)  // _ADR: Address
+                            Name (_ADR, Zero)
                             OperationRegion (ARE0, PCI_Config, Zero, 0x04)
                             Field (ARE0, ByteAcc, NoLock, Preserve)
                             {
                                 AVND,   16
                             }
 
-                            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                            Method (_RMV, 0, NotSerialized)
                             {
                                 Return (Zero)
                             }
 
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -849,7 +829,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB0)
                             {
-                                Name (_ADR, Zero)  // _ADR: Address
+                                Name (_ADR, Zero)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -867,12 +847,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     SBRS,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB4.UPS0.DSB0.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -886,8 +866,8 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -899,7 +879,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -908,7 +888,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB3)
                             {
-                                Name (_ADR, 0x00030000)  // _ADR: Address
+                                Name (_ADR, 0x00030000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -923,12 +903,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB4.UPS0.DSB3.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -940,15 +920,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -960,7 +940,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -969,7 +949,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB4)
                             {
-                                Name (_ADR, 0x00040000)  // _ADR: Address
+                                Name (_ADR, 0x00040000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -984,12 +964,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB4.UPS0.DSB4.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1001,15 +981,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -1021,7 +1001,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -1030,7 +1010,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB5)
                             {
-                                Name (_ADR, 0x00050000)  // _ADR: Address
+                                Name (_ADR, 0x00050000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -1045,12 +1025,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB4.UPS0.DSB5.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1062,7 +1042,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -1070,7 +1050,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB6)
                             {
-                                Name (_ADR, 0x00060000)  // _ADR: Address
+                                Name (_ADR, 0x00060000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -1085,12 +1065,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB4.UPS0.DSB6.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1102,7 +1082,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -1112,7 +1092,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB5)
                     {
-                        Name (_ADR, 0x00050000)  // _ADR: Address
+                        Name (_ADR, 0x00050000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -1127,12 +1107,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB5.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -1144,7 +1124,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
@@ -1152,7 +1132,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB6)
                     {
-                        Name (_ADR, 0x00060000)  // _ADR: Address
+                        Name (_ADR, 0x00060000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -1167,12 +1147,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB1.UPS0.DSB6.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -1184,7 +1164,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
@@ -1194,7 +1174,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
             Device (DSB2)
             {
-                Name (_ADR, 0x00020000)  // _ADR: Address
+                Name (_ADR, 0x00020000)
                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                 Field (A1E0, ByteAcc, NoLock, Preserve)
                 {
@@ -1209,12 +1189,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     MABT,   1
                 }
 
-                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                Method (_BBN, 0, NotSerialized)
                 {
-                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB2.SECB */
+                    Return (SECB)
                 }
 
-                Method (_STA, 0, NotSerialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)
                 {
                     If (_OSI ("Darwin"))
                     {
@@ -1226,18 +1206,18 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     }
                 }
 
-                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                Method (_RMV, 0, NotSerialized)
                 {
                     Return (Zero)
                 }
 
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (_DSM, 4, Serialized)
                 {
                     If (!Arg2)
                     {
                         Return (Buffer (One)
                         {
-                             0x03                                             // .
+                             0x03
                         })
                     }
 
@@ -1252,14 +1232,14 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                 Device (XHC3)
                 {
-                    Name (_ADR, Zero)  // _ADR: Address
-                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    Name (_ADR, Zero)
+                    Method (_DSM, 4, NotSerialized)
                     {
                         If ((Arg2 == Zero))
                         {
                             Return (Buffer (One)
                             {
-                                 0x03                                             // .
+                                 0x03
                             })
                         }
 
@@ -1274,7 +1254,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                 "built-in", 
                                 Buffer (One)
                                 {
-                                     0x00                                             // .
+                                     0x00
                                 }, 
 
                                 "device_type", 
@@ -1316,7 +1296,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     {
                                         Arg4 = Buffer (One)
                                             {
-                                                 0x03                                             // .
+                                                 0x03
                                             }
                                         Return (One)
                                     }
@@ -1330,7 +1310,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Arg4 = Buffer (One)
                                 {
-                                     0x00                                             // .
+                                     0x00
                                 }
                             Return (Zero)
                         }
@@ -1338,7 +1318,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                         Return (Local0)
                     }
 
-                    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                    Method (_PRW, 0, NotSerialized)
                     {
                         Return (Package (0x02)
                         {
@@ -1347,7 +1327,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                         })
                     }
 
-                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)
                     {
                         If (_OSI ("Darwin"))
                         {
@@ -1361,13 +1341,13 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (RHUB)
                     {
-                        Name (_ADR, Zero)  // _ADR: Address
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Name (_ADR, Zero)
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -1381,15 +1361,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                         Device (SSP1)
                         {
-                            Name (_ADR, One)  // _ADR: Address
-                            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+                            Name (_ADR, One)
+                            Name (_UPC, Package (0x04)
                             {
                                 0xFF, 
                                 0x09, 
                                 Zero, 
                                 Zero
                             })
-                            Name (_PLD, Package (0x01)  // _PLD: Physical Location of Device
+                            Name (_PLD, Package (0x01)
                             {
                                 ToPLD (
                                     PLD_Revision           = 0x1,
@@ -1421,7 +1401,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     PLD_HorizontalOffset   = 0x0)
 
                             })
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -1433,13 +1413,13 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                 }
                             }
 
-                            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                            Method (_DSM, 4, NotSerialized)
                             {
                                 If ((Arg2 == Zero))
                                 {
                                     Return (Buffer (One)
                                     {
-                                         0x03                                             // .
+                                         0x03
                                     })
                                 }
 
@@ -1453,15 +1433,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                         Device (HS03)
                         {
-                            Name (_ADR, 0x03)  // _ADR: Address
-                            Name (_UPC, Package (0x04)  // _UPC: USB Port Capabilities
+                            Name (_ADR, 0x03)
+                            Name (_UPC, Package (0x04)
                             {
                                 0xFF, 
                                 0x09, 
                                 Zero, 
                                 Zero
                             })
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -1473,7 +1453,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                 }
                             }
 
-                            Name (_PLD, Package (0x01)  // _PLD: Physical Location of Device
+                            Name (_PLD, Package (0x01)
                             {
                                 ToPLD (
                                     PLD_Revision           = 0x1,
@@ -1512,7 +1492,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
             Device (DSB4)
             {
-                Name (_ADR, 0x00040000)  // _ADR: Address
+                Name (_ADR, 0x00040000)
                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                 Field (A1E0, ByteAcc, NoLock, Preserve)
                 {
@@ -1527,12 +1507,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     MABT,   1
                 }
 
-                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                Method (_BBN, 0, NotSerialized)
                 {
-                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.SECB */
+                    Return (SECB)
                 }
 
-                Method (_STA, 0, NotSerialized)  // _STA: Status
+                Method (_STA, 0, NotSerialized)
                 {
                     If (_OSI ("Darwin"))
                     {
@@ -1544,18 +1524,18 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                     }
                 }
 
-                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                Method (_RMV, 0, NotSerialized)
                 {
                     Return (Zero)
                 }
 
-                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                Method (_DSM, 4, Serialized)
                 {
                     If (!Arg2)
                     {
                         Return (Buffer (One)
                         {
-                             0x03                                             // .
+                             0x03
                         })
                     }
 
@@ -1570,26 +1550,26 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                         "built-in", 
                         Buffer (One)
                         {
-                             0x00                                             // .
+                             0x00
                         }
                     })
                 }
 
                 Device (UPS0)
                 {
-                    Name (_ADR, Zero)  // _ADR: Address
+                    Name (_ADR, Zero)
                     OperationRegion (ARE0, PCI_Config, Zero, 0x04)
                     Field (ARE0, ByteAcc, NoLock, Preserve)
                     {
                         AVND,   16
                     }
 
-                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                    Method (_RMV, 0, NotSerialized)
                     {
                         Return (Zero)
                     }
 
-                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    Method (_STA, 0, NotSerialized)
                     {
                         If (_OSI ("Darwin"))
                         {
@@ -1603,7 +1583,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB0)
                     {
-                        Name (_ADR, Zero)  // _ADR: Address
+                        Name (_ADR, Zero)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -1621,12 +1601,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             SBRS,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB0.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -1638,15 +1618,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
 
                         Device (DEV0)
                         {
-                            Name (_ADR, Zero)  // _ADR: Address
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Name (_ADR, Zero)
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -1658,7 +1638,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                 }
                             }
 
-                            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                            Method (_RMV, 0, NotSerialized)
                             {
                                 Return (Zero)
                             }
@@ -1667,7 +1647,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB3)
                     {
-                        Name (_ADR, 0x00030000)  // _ADR: Address
+                        Name (_ADR, 0x00030000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -1682,12 +1662,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB3.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -1699,26 +1679,26 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
 
                         Device (UPS0)
                         {
-                            Name (_ADR, Zero)  // _ADR: Address
+                            Name (_ADR, Zero)
                             OperationRegion (ARE0, PCI_Config, Zero, 0x04)
                             Field (ARE0, ByteAcc, NoLock, Preserve)
                             {
                                 AVND,   16
                             }
 
-                            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                            Method (_RMV, 0, NotSerialized)
                             {
                                 Return (Zero)
                             }
 
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -1732,7 +1712,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB0)
                             {
-                                Name (_ADR, Zero)  // _ADR: Address
+                                Name (_ADR, Zero)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -1750,12 +1730,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     SBRS,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB3.UPS0.DSB0.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1769,8 +1749,8 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -1786,7 +1766,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB3)
                             {
-                                Name (_ADR, 0x00030000)  // _ADR: Address
+                                Name (_ADR, 0x00030000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -1801,12 +1781,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB3.UPS0.DSB3.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1818,15 +1798,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -1838,7 +1818,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -1847,7 +1827,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB4)
                             {
-                                Name (_ADR, 0x00040000)  // _ADR: Address
+                                Name (_ADR, 0x00040000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -1862,12 +1842,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB3.UPS0.DSB4.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1879,15 +1859,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -1899,7 +1879,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -1908,7 +1888,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB5)
                             {
-                                Name (_ADR, 0x00050000)  // _ADR: Address
+                                Name (_ADR, 0x00050000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -1923,12 +1903,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB3.UPS0.DSB5.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1940,7 +1920,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -1948,7 +1928,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB6)
                             {
-                                Name (_ADR, 0x00060000)  // _ADR: Address
+                                Name (_ADR, 0x00060000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -1963,12 +1943,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB3.UPS0.DSB6.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -1980,7 +1960,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -1990,7 +1970,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB4)
                     {
-                        Name (_ADR, 0x00040000)  // _ADR: Address
+                        Name (_ADR, 0x00040000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -2005,12 +1985,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB4.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -2022,26 +2002,26 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
 
                         Device (UPS0)
                         {
-                            Name (_ADR, Zero)  // _ADR: Address
+                            Name (_ADR, Zero)
                             OperationRegion (ARE0, PCI_Config, Zero, 0x04)
                             Field (ARE0, ByteAcc, NoLock, Preserve)
                             {
                                 AVND,   16
                             }
 
-                            Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                            Method (_RMV, 0, NotSerialized)
                             {
                                 Return (Zero)
                             }
 
-                            Method (_STA, 0, NotSerialized)  // _STA: Status
+                            Method (_STA, 0, NotSerialized)
                             {
                                 If (_OSI ("Darwin"))
                                 {
@@ -2055,7 +2035,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB0)
                             {
-                                Name (_ADR, Zero)  // _ADR: Address
+                                Name (_ADR, Zero)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -2073,12 +2053,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     SBRS,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB4.UPS0.DSB0.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -2092,8 +2072,8 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -2105,7 +2085,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -2114,7 +2094,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB3)
                             {
-                                Name (_ADR, 0x00030000)  // _ADR: Address
+                                Name (_ADR, 0x00030000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -2129,12 +2109,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB4.UPS0.DSB3.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -2146,15 +2126,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -2166,7 +2146,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -2175,7 +2155,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB4)
                             {
-                                Name (_ADR, 0x00040000)  // _ADR: Address
+                                Name (_ADR, 0x00040000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -2190,12 +2170,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB4.UPS0.DSB4.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -2207,15 +2187,15 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
 
                                 Device (DEV0)
                                 {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                                    Name (_ADR, Zero)
+                                    Method (_STA, 0, NotSerialized)
                                     {
                                         If (_OSI ("Darwin"))
                                         {
@@ -2227,7 +2207,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                         }
                                     }
 
-                                    Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                    Method (_RMV, 0, NotSerialized)
                                     {
                                         Return (Zero)
                                     }
@@ -2236,7 +2216,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB5)
                             {
-                                Name (_ADR, 0x00050000)  // _ADR: Address
+                                Name (_ADR, 0x00050000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -2251,12 +2231,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB4.UPS0.DSB5.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -2268,7 +2248,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -2276,7 +2256,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                             Device (DSB6)
                             {
-                                Name (_ADR, 0x00060000)  // _ADR: Address
+                                Name (_ADR, 0x00060000)
                                 OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                                 Field (A1E0, ByteAcc, NoLock, Preserve)
                                 {
@@ -2291,12 +2271,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     MABT,   1
                                 }
 
-                                Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                                Method (_BBN, 0, NotSerialized)
                                 {
-                                    Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB4.UPS0.DSB6.SECB */
+                                    Return (SECB)
                                 }
 
-                                Method (_STA, 0, NotSerialized)  // _STA: Status
+                                Method (_STA, 0, NotSerialized)
                                 {
                                     If (_OSI ("Darwin"))
                                     {
@@ -2308,7 +2288,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                                     }
                                 }
 
-                                Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                                Method (_RMV, 0, NotSerialized)
                                 {
                                     Return (Zero)
                                 }
@@ -2318,7 +2298,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB5)
                     {
-                        Name (_ADR, 0x00050000)  // _ADR: Address
+                        Name (_ADR, 0x00050000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -2333,12 +2313,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB5.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -2350,7 +2330,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
@@ -2358,7 +2338,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
 
                     Device (DSB6)
                     {
-                        Name (_ADR, 0x00060000)  // _ADR: Address
+                        Name (_ADR, 0x00060000)
                         OperationRegion (A1E0, PCI_Config, Zero, 0x40)
                         Field (A1E0, ByteAcc, NoLock, Preserve)
                         {
@@ -2373,12 +2353,12 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             MABT,   1
                         }
 
-                        Method (_BBN, 0, NotSerialized)  // _BBN: BIOS Bus Number
+                        Method (_BBN, 0, NotSerialized)
                         {
-                            Return (SECB) /* \_SB_.PCI0.RP09.UPSB.DSB4.UPS0.DSB6.SECB */
+                            Return (SECB)
                         }
 
-                        Method (_STA, 0, NotSerialized)  // _STA: Status
+                        Method (_STA, 0, NotSerialized)
                         {
                             If (_OSI ("Darwin"))
                             {
@@ -2390,7 +2370,7 @@ DefinitionBlock ("", "SSDT", 1, "ACDT", "TBTP", 0x00000000)
                             }
                         }
 
-                        Method (_RMV, 0, NotSerialized)  // _RMV: Removal Status
+                        Method (_RMV, 0, NotSerialized)
                         {
                             Return (Zero)
                         }
