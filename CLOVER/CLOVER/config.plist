@@ -14,7 +14,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					UE5MRg==
 					</data>
@@ -22,11 +21,6 @@
 					<data>
 					WE5MRg==
 					</data>
-=======
-					<data>X09TSQ==</data>
-					<key>Replace</key>
-					<data>WE9TSQ==</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -34,7 +28,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1EyMg==
 					</data>
@@ -42,11 +35,6 @@
 					<data>
 					WFEyMg==
 					</data>
-=======
-					<data>U0FUMA==</data>
-					<key>Replace</key>
-					<data>U0FUQQ==</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -54,7 +42,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1EyNA==
 					</data>
@@ -62,11 +49,6 @@
 					<data>
 					WFEyNA==
 					</data>
-=======
-					<data>hkJBVDA=</data>
-					<key>Replace</key>
-					<data>hkJBVEM=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -74,7 +56,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1EyNQ==
 					</data>
@@ -82,11 +63,6 @@
 					<data>
 					WFEyNQ==
 					</data>
-=======
-					<data>hkJBVDE=</data>
-					<key>Replace</key>
-					<data>hkJBVEM=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -94,19 +70,12 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1E0QQ==
 					</data>
 					<key>Replace</key>
 					<data>
 					WFE0QQ==
-=======
-					<data>Tm90aWZ5IChcX1NCLlBDSTAuTFBDQi5FQy5CQVQx
-					</data>
-					<key>Replace</key>
-					<data>Tm90aWZ5IChcX1NCLlBDSTAuTFBDQi5FQy5CQVRD
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 					</data>
 				</dict>
 				<dict>
@@ -115,7 +84,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1E0Qg==
 					</data>
@@ -123,11 +91,6 @@
 					<data>
 					WFE0Qg==
 					</data>
-=======
-					<data>X1ExNA==</data>
-					<key>Replace</key>
-					<data>WFExNA==</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -135,7 +98,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1E0Qw==
 					</data>
@@ -143,11 +105,6 @@
 					<data>
 					WFE0Qw==
 					</data>
-=======
-					<data>X1ExNQ==</data>
-					<key>Replace</key>
-					<data>WFExNQ==</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -155,7 +112,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1E0RA==
 					</data>
@@ -163,11 +119,6 @@
 					<data>
 					WFE0RA==
 					</data>
-=======
-					<data>R0JJRgM=</data>
-					<key>Replace</key>
-					<data>WEJJRgM=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -175,7 +126,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					QkZDQwA=
 					</data>
@@ -183,11 +133,6 @@
 					<data>
 					WEZDQwA=
 					</data>
-=======
-					<data>R0JJWAM=</data>
-					<key>Replace</key>
-					<data>WEJJWAM=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -195,7 +140,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					QkFUVwE=
 					</data>
@@ -203,11 +147,6 @@
 					<data>
 					WEFUVwE=
 					</data>
-=======
-					<data>R0JTVAQ=</data>
-					<key>Replace</key>
-					<data>WEJTVAQ=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -215,7 +154,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					X1ExNA==
 					</data>
@@ -265,11 +203,6 @@
 					<data>
 					WEJJWAM=
 					</data>
-=======
-					<data>QUpUUAM=</data>
-					<key>Replace</key>
-					<data>WEpUUAM=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -277,7 +210,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					R0JTVAQ=
 					</data>
@@ -285,11 +217,6 @@
 					<data>
 					WEJTVAQ=
 					</data>
-=======
-					<data>X0wxNwA=</data>
-					<key>Replace</key>
-					<data>WEwxNwA=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
@@ -297,7 +224,6 @@
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-<<<<<<< HEAD:CLOVER/CLOVER/config.plist
 					<data>
 					QUpUUAM=
 					</data>
@@ -305,11 +231,6 @@
 					<data>
 					WEpUUAM=
 					</data>
-=======
-					<data>T1dBSwE=</data>
-					<key>Replace</key>
-					<data>WFdBSwE=</data>
->>>>>>> 65fa4d220cc5299b82e8aef18438685e098b59bd:config.plist
 				</dict>
 				<dict>
 					<key>Comment</key>
