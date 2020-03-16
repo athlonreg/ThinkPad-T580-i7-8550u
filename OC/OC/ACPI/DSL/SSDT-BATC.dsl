@@ -1,24 +1,44 @@
-DefinitionBlock ("", "SSDT", 2, "OCLT", "BATC", 0)
+/*
+ * Intel ACPI Component Architecture
+ * AML/ASL+ Disassembler version 20190509 (64-bit version)
+ * Copyright (c) 2000 - 2019 Intel Corporation
+ * 
+ * Disassembling to symbolic ASL+ operators
+ *
+ * Disassembly of iASLmgmied.aml, Tue Feb 18 15:58:20 2020
+ *
+ * Original Table Header:
+ *     Signature        "SSDT"
+ *     Length           0x00000524 (1316)
+ *     Revision         0x02
+ *     Checksum         0x2E
+ *     OEM ID           "ACDT"
+ *     OEM Table ID     "BATC"
+ *     OEM Revision     0x00000000 (0)
+ *     Compiler ID      "INTL"
+ *     Compiler Version 0x20190509 (538510601)
+ */
+DefinitionBlock ("", "SSDT", 2, "ACDT", "BATC", 0x00000000)
 {
-    External (_SB.PCI0.LPCB.EC, DeviceObj)
-    External (_SB.PCI0.LPCB.EC.BAT0, DeviceObj)
-    External (_SB.PCI0.LPCB.EC.BAT0._BIF, MethodObj)
-    External (_SB.PCI0.LPCB.EC.BAT0._BST, MethodObj)
-    External (_SB.PCI0.LPCB.EC.BAT0._HID, IntObj)
-    External (_SB.PCI0.LPCB.EC.BAT0._STA, MethodObj)
-    External (_SB.PCI0.LPCB.EC.BAT1, DeviceObj)
-    External (_SB.PCI0.LPCB.EC.BAT1._BIF, MethodObj)
-    External (_SB.PCI0.LPCB.EC.BAT1._BST, MethodObj)
-    External (_SB.PCI0.LPCB.EC.BAT1._HID, IntObj)
-    External (_SB.PCI0.LPCB.EC.BAT1._STA, MethodObj)
+    External (_SB_.PCI0.LPCB.EC__, DeviceObj)
+    External (_SB_.PCI0.LPCB.EC__.BAT0, DeviceObj)
+    External (_SB_.PCI0.LPCB.EC__.BAT0._BIF, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.LPCB.EC__.BAT0._BST, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.LPCB.EC__.BAT0._HID, IntObj)
+    External (_SB_.PCI0.LPCB.EC__.BAT0._STA, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.LPCB.EC__.BAT1, DeviceObj)
+    External (_SB_.PCI0.LPCB.EC__.BAT1._BIF, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.LPCB.EC__.BAT1._BST, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.LPCB.EC__.BAT1._HID, IntObj)
+    External (_SB_.PCI0.LPCB.EC__.BAT1._STA, MethodObj)    // 0 Arguments
 
     Scope (_SB.PCI0.LPCB.EC)
     {
         Device (BATC)
         {
-            Name (_HID, EisaId ("PNP0C0A"))
-            Name (_UID, 0x02)
-            Method (_INI, 0, NotSerialized)
+            Name (_HID, EisaId ("PNP0C0A") /* Control Method Battery */)  // _HID: Hardware ID
+            Name (_UID, 0x02)  // _UID: Unique ID
+            Method (_INI, 0, NotSerialized)  // _INI: Initialize
             {
                 If (_OSI ("Darwin"))
                 {
@@ -37,7 +57,7 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BATC", 0)
                 Return (Arg0)
             }
 
-            Method (_STA, 0, NotSerialized)
+            Method (_STA, 0, NotSerialized)  // _STA: Status
             {
                 If (_OSI ("Darwin"))
                 {
@@ -53,7 +73,7 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BATC", 0)
             Name (B1CO, Zero)
             Name (B0DV, Zero)
             Name (B1DV, Zero)
-            Method (_BST, 0, NotSerialized)
+            Method (_BST, 0, NotSerialized)  // _BST: Battery Status
             {
                 Local0 = ^^BAT0._BST ()
                 Local2 = ^^BAT0._STA ()
@@ -116,7 +136,7 @@ DefinitionBlock ("", "SSDT", 2, "OCLT", "BATC", 0)
                 Return (Local0)
             }
 
-            Method (_BIF, 0, NotSerialized)
+            Method (_BIF, 0, NotSerialized)  // _BIF: Battery Information
             {
                 Local0 = ^^BAT0._BIF ()
                 Local2 = ^^BAT0._STA ()

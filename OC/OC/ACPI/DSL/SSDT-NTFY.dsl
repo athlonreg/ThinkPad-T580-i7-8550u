@@ -38,33 +38,33 @@
 //
 DefinitionBlock ("", "SSDT", 2, "OCLT", "NTFY", 0)
 {
-    External (_SB.PCI0.LPCB.EC, DeviceObj)
-    External (_SB.PCI0.LPCB.EC.BATC, DeviceObj)
+    External (\_SB.PCI0.LPCB.EC, DeviceObj)
+    External (\_SB.PCI0.LPCB.EC.BATC, DeviceObj)
     //
-    External (_SB.PCI0.LPCB.EC.BAT0.B0ST, IntObj)
-    External (_SB.PCI0.LPCB.EC.BAT1.XB1S, IntObj)
-    External (_SB.PCI0.LPCB.EC.BAT1.B1ST, IntObj)
-    External (_SB.PCI0.LPCB.EC.BAT1.SBLI, IntObj)
+    External (\_SB.PCI0.LPCB.EC.BAT0.B0ST, IntObj)
+    External (\_SB.PCI0.LPCB.EC.BAT1.XB1S, IntObj)
+    External (\_SB.PCI0.LPCB.EC.BAT1.B1ST, IntObj)
+    External (\_SB.PCI0.LPCB.EC.BAT1.SBLI, IntObj)
     //
-    External (_SB.PCI0.LPCB.EC.CLPM, MethodObj)
-    External (_SB.PCI0.LPCB.EC.HKEY.MHKQ, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.CLPM, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.HKEY.MHKQ, MethodObj)
     //
-    External (BT2T, FieldUnitObj)
-    External (_SB.PCI0.LPCB.EC.SLUL, FieldUnitObj)
-    External (_SB.PCI0.LPCB.EC.HB0A, FieldUnitObj)
-    External (_SB.PCI0.LPCB.EC.HB1A, FieldUnitObj)
+    External (\BT2T, FieldUnitObj)
+    External (\_SB.PCI0.LPCB.EC.SLUL, FieldUnitObj)
+    External (\_SB.PCI0.LPCB.EC.HB0A, FieldUnitObj)
+    External (\_SB.PCI0.LPCB.EC.HB1A, FieldUnitObj)
     //
-    External (_SB.PCI0.LPCB.EC.XQ22, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XQ24, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XQ25, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XQ4A, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XQ4B, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XQ4C, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XQ4D, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XFCC, MethodObj)
-    External (_SB.PCI0.LPCB.EC.XATW, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ22, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ24, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ25, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ4A, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ4B, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ4C, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ4D, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XFCC, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XATW, MethodObj)
 
-    Scope (_SB.PCI0.LPCB.EC)
+    Scope (\_SB.PCI0.LPCB.EC)
     {
         Method (_Q22, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
         {

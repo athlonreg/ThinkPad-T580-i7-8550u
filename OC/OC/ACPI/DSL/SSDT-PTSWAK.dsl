@@ -1,18 +1,17 @@
-//
-// In config ACPI:
-// _PTS to ZPTS(1,N)
+// Overriding _PTS and _WAK
+// In config ACPI, _PTS to ZPTS(1,N)
 // Find:     5F50545301
 // Replace:  5A50545301
 // or 
-// _PTS to ZPTS(1,S)
+// In config ACPI, _PTS to ZPTS(1,S)
 // Find:     5F50545309
 // Replace:  5A50545309
 //
-// _WAK to ZWAK(1,N)
+// In config ACPI, _WAK to ZWAK(1,N)
 // Find:     5F57414B01
 // Replace:  5A57414B01
 // or
-// _WAK to ZWAK(1,S)
+// In config ACPI, _WAK to ZWAK(1,S)
 // Find:     5F57414B09
 // Replace:  5A57414B09
 //
@@ -97,3 +96,4 @@ DefinitionBlock("", "SSDT", 2, "OCLT", "PTSWAK", 0)
         Return (Local0)
     }
 }
+//EOF
